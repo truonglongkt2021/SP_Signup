@@ -72,7 +72,7 @@ namespace SP_Signup
                 }
                 // We have all the list item data. For example, Title.
                 Result obj = new Result();
-                //obj.Title = listItem["Title"].ToString();
+                obj.Title = listItem["Title"].ToString();
                 obj.OData_x54c1__x002e__x002e__x002e__x00 = listItem["_x54c1__x002e__x002e__x002e__x00"] == null ? "NULL" : listItem["_x54c1__x002e__x002e__x002e__x00"].ToString();
                 obj.OData__x4f1a__x793e__x540d_ = listItem["_x4f1a__x793e__x540d_"] == null ? "NULL" : listItem["_x4f1a__x793e__x540d_"].ToString();
 
