@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SP_Signup.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,9 @@ namespace SP_Signup
 
         private void btnsave_Click(object sender, EventArgs e)
         {
+            Global_Variables._Url = txtSPApi.Text;
+            Global_Variables._Username = txtuser.Text;
+            Global_Variables._Password = txtpass.Text;
             ItemList c = new ItemList();
             this.Hide();
             c.ShowDialog();
