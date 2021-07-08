@@ -27,13 +27,10 @@ namespace SP_Signup
         private void DetailItem_Load(object sender, EventArgs e)
         {
             ID_Item = ItemList.ID_Item;
-            var a = 1;
-
-            Global_Variables._Password = "zaq@1234";
-            context = new ClientContext("https://datadesign.sharepoint.com/sites/WSS-TEST");
+            ClientContext context = new ClientContext(Global_Variables._Url);
             SecureString passWord = new SecureString();
             foreach (char c in Global_Variables._Password.ToCharArray()) passWord.AppendChar(c);
-            context.Credentials = new SharePointOnlineCredentials("truonglong@datadesign.vn", passWord);
+            context.Credentials = new SharePointOnlineCredentials(Global_Variables._Username, passWord);
             // Assume the web has a list named "Announcements".
             List announcementsList = context.Web.Lists.GetByTitle(@"旧図エクスポート");
 

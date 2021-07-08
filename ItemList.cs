@@ -45,15 +45,15 @@ namespace SP_Signup
         {
 
         }
+       
         private void GetListItem()
         {
-            Global_Variables._Password = "zaq@1234";
-            ClientContext context = new ClientContext("https://datadesign.sharepoint.com/sites/WSS-TEST");
+            ClientContext context = new ClientContext(Global_Variables._Url);
             SecureString passWord = new SecureString();
             foreach (char c in Global_Variables._Password.ToCharArray()) passWord.AppendChar(c);
-            context.Credentials = new SharePointOnlineCredentials("truonglong@datadesign.vn", passWord);
+            context.Credentials = new SharePointOnlineCredentials(Global_Variables._Username, passWord);
             // Assume the web has a list named "Announcements".
-            List announcementsList = context.Web.Lists.GetByTitle(@"旧図エクスポート");
+            List announcementsList = context.Web.Lists.GetByTitle(Global_Variables._TitleList);
 
             // This creates a CamlQuery that has a RowLimit of 100, and also specifies Scope="RecursiveAll"
             // so that it grabs all list items, regardless of the folder they are in.

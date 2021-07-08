@@ -9,9 +9,9 @@ namespace SP_Signup.Common
     public static class Global_Variables
     {
         public static string _Username = "";
-        public static string _Password ="";
-        public static string _Url="";
-
-
+        public static string _Password = "";
+        public static string _Url = "";
+        public static string _TitleList = "";
+        public static Microsoft.SharePoint.Client.ListCollection ListTitle { get; set; }
     }
 }

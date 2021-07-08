@@ -45,4 +45,9 @@ namespace SP_Signup.Common
             }
         }
     }
+    public class ListItemSharepoint
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
 }
