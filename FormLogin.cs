@@ -24,9 +24,12 @@ namespace SP_Signup
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txtSPApi.Text = Global_Variables._Url = @"https://datadesign.sharepoint.com/sites/WSS-TEST";
-            txtuser.Text = Global_Variables._Username = @"truonglong@datadesign.vn";
-            txtpass.Text = Global_Variables._Password = @"zaq@1234";
+            //txtSPApi.Text = Global_Variables._Url = @"https://datadesign.sharepoint.com/sites/WSS-TEST";
+            //txtuser.Text = Global_Variables._Username = @"truonglong@datadesign.vn";
+            //txtpass.Text = Global_Variables._Password = @"";
+            txtSPApi.Text = Global_Variables._Url;
+            txtuser.Text = Global_Variables._Username;
+            txtpass.Text = Global_Variables._Password;
         }
 
         private void grAcc_Enter(object sender, EventArgs e)
