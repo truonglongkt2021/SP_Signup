@@ -22,7 +22,9 @@ namespace SP_Signup
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtSPApi.Text = Global_Variables._Url;
+            txtuser.Text = Global_Variables._Username;
+            txtpass.Text = Global_Variables._Password;
         }
 
         private void grAcc_Enter(object sender, EventArgs e)
@@ -42,6 +44,8 @@ namespace SP_Signup
 
         private void btnsave_Click(object sender, EventArgs e)
         {
+            btnLogin.Enabled = false;
+            btnclose.Enabled = false;
             Global_Variables._Url = txtSPApi.Text;
             Global_Variables._Username = txtuser.Text;
             Global_Variables._Password = txtpass.Text;

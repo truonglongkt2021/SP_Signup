@@ -66,10 +66,10 @@ namespace SP_Signup
             List<Result> listResult = new List<Result>();
             foreach (ListItem listItem in items)
             {
-                if (listItem["Attachments"].ToString().ToLower().Equals("false"))
-                {
-                    continue;
-                }
+                //if (listItem["Attachments"].ToString().ToLower().Equals("false"))
+                //{
+                //    continue;
+                //}
                 // We have all the list item data. For example, Title.
                 Result obj = new Result();
                 obj.Title = listItem["Title"].ToString();
@@ -114,46 +114,25 @@ namespace SP_Signup
         
 
        
-        public static FileCollection GetAttachments(ClientContext ctx, List list, ListItem item)
-        {
-            ctx.Load(list, l => l.RootFolder.ServerRelativeUrl);
-            ctx.Load(ctx.Site, s => s.Url);
-            ctx.ExecuteQuery();
-
-            Microsoft.SharePoint.Client.Folder attFolder = ctx.Web.GetFolderByServerRelativeUrl(list.RootFolder.ServerRelativeUrl + "/Attachments/" + item.Id);
-            FileCollection files = attFolder.Files;
-
-            ctx.Load(files, fs => fs.Include(f => f.ServerRelativeUrl, f => f.Name, f => f.ServerRelativeUrl));
-            ctx.ExecuteQuery();
-
-            return files;
-
-        }
-
-        public static void Download(string serverFilePath, string destPath, ClientContext context, string filename)
-        {
-            using (FileInformation ffl = Microsoft.SharePoint.Client.File.OpenBinaryDirect(context, serverFilePath))
-            {
-                if (System.IO.Directory.Exists(destPath))
-                {
-                    using (FileStream fileStream = System.IO.File.Create(destPath + "\\" + filename))
-                    {
-                        using (MemoryStream stream = new MemoryStream())
-                        {
-                            ffl.Stream.CopyTo(stream);
-                            stream.WriteTo(fileStream);
-                        }
-                    }
-                }
-            }
-        }
+        
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
+            dataGridView1.Enabled = false;
             DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
             ID_Item = Convert.ToString(selectedRow.Cells["ID"].Value);
             DetailItem frm2 = new DetailItem();
+            dataGridView1.Enabled = true;
+
             frm2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormLogin c = new FormLogin();
+            this.Hide();
+            c.ShowDialog();
+            this.Close();
         }
     }
 }
